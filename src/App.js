@@ -14,12 +14,7 @@ import './app.scss'
 
 import Login from './components/AuthComponents/LoginComponent/Login';
 import Signup from './components/AuthComponents/SignupComponent/Signup';
-
-function NotFound(){
-    return (
-        <div>404 not found</div>
-    )
-}
+import NotFound from './components/NotFound/NotFound';
 
 function Welcome(){
     return (

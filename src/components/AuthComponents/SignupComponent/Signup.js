@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import './signup.scss';
 
 import SignupForm from './SignupForm';
+import AuthHeader from '../AuthHeader';
+import AuthFooter from '../AuthFooter';
 
 
 
@@ -36,7 +38,9 @@ function Signup() {
 
   return (
     <div className="signupContainer">
+      <AuthHeader />
       <SignupForm />
+      <AuthFooter />
     </div>
   );
 }

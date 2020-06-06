@@ -4,12 +4,14 @@ import { login } from '../../redux/actions/userActions';
 import { connect } from 'react-redux';
 
 import LoginForm from './LoginForm';
+import AuthHeader from '../AuthHeader';
+import AuthFooter from '../AuthFooter';
 
 
 
 import './login.scss'
 
-function Login({ login, loginErrors }) {
+function Login(props, { login, loginErrors }) {
   const history = useHistory();
 
   const [loginData, setLoginData] = useState({email: '', password: '' });
@@ -22,6 +24,11 @@ function Login({ login, loginErrors }) {
   const handleLogin = event => {
 
     event.preventDefault();
+
+    props.history.push('/');
+    return;
+
+    
     login(loginData)
     .then(response => response === 'success' ? history.push('/profile') : null);
 
@@ -31,7 +38,9 @@ function Login({ login, loginErrors }) {
 
   return (
     <div className="loginContainer">
-      <LoginForm />
+      <AuthHeader />
+      <LoginForm handleLogin={handleLogin} />
+      <AuthFooter />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm = ({ handleLogin }) => {
     return(
         <div className="loginFormContainer">
             <div className="formSection">
@@ -13,7 +13,7 @@ const LoginForm = () => {
                     <input placeholder="Password" />
                 </div>
                 <div>
-                    <button>Input</button>
+                    <button onClick={handleLogin} >Login</button>
                 </div>
                 <div>
                     <Link to="/signup">Registration!</Link>
