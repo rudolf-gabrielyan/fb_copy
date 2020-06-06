@@ -1,0 +1,81 @@
+.loginContainer {
+    background: linear-gradient(white, #D3D8E8);
+    width: 100%;
+    height: 86vh;
+
+    .loginFormContainer {
+        width: 100%;
+        height: 86vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .formSection {
+            width: 80%;
+            max-width: 600px;
+            height: auto;
+            background-color: white;
+            border: 1px solid #dddfe2;
+            border-radius: 3px;
+            padding: 50px 30px;
+            box-sizing: border-box;
+
+
+            > p:nth-of-type(1){
+                text-align: center;
+                font-size: 18px;
+                margin-bottom: 2rem;
+            }
+
+            > div {
+                width: 100%;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:nth-last-child(){
+                    justify-content: flex-start;
+                }
+
+                > input {
+                    width: 70%;
+                    height: 40px;
+                    font-size: 14px;
+                    padding: 5px 8px;
+                    border: 1px solid #dddfe2;
+                    color: grey;
+                    outline: none;
+                    box-sizing: border-box;
+
+                    &::placeholder {
+                        color: grey;
+                    }
+                }
+
+                > button {
+                    background-color: #4267b2;
+                    font-size: 14px;
+                    font-weight: bold;
+                    border: none;
+                    outline: none;
+                    color: white;
+                    width: 70%;
+                    height: 50px;
+                    margin: 0;
+                    cursor: pointer;
+                    transition-duration: 0.3s;
+
+                    &:hover {
+                        background-color: #1c418e;
+                    }
+                }
+
+                > a {
+                    color: #3b5998; 
+                }
+            }
+        }
+    }
+    
+}
