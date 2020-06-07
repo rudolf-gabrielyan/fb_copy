@@ -3,24 +3,19 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { checkAuth } from './components/redux/actions/userActions';
 import ProtectedRoute from './ProtectedRoute';
-
-import Profile from './components/User/Profile';
-import UserHeader from './components/User/UserHeader/UserHeader';
-import Loading from './components/Loading/Loading'
 import './app.scss'
 
-// const Login = lazy(() => import('./components/AuthComponents/LoginComponent/Login'));
-// const Signup = lazy(() => import('./components/AuthComponents/SignupComponent/Signup'));
-
+import UserHeader from './components/User/UserHeader/UserHeader';
+// import Loading from './components/Loading/Loading'
 import Login from './components/AuthComponents/LoginComponent/Login';
 import Signup from './components/AuthComponents/SignupComponent/Signup';
 import NotFound from './components/NotFound/NotFound';
 
-function Welcome(){
-    return (
-        <div>Welcome</div>
-    )
-}
+// const Profile = lazy(() => import('./components/User/Profile'));
+// const UserProfile = lazy(() => import('./components/User/UserProfile'));
+import Profile from './components/User/Profile';
+import UserProfile from './components/User/UserProfile'
+
 
 function App({ checkAuth }) {
 
@@ -29,30 +24,26 @@ function App({ checkAuth }) {
     }, []);
 
     return (
-        <Suspense fallback={<Loading/>}>
+        // <Suspense fallback={<Loading/>}>
             <BrowserRouter>
                 <Switch>
+                    <ProtectedRoute exact path='/login' component={Login} />
+                    <ProtectedRoute exact path='/signup' component={Signup} />
 
-                    <Route exact path="/">
+                    <Route to="/">
                         <UserHeader/>
                         <Switch>
                             {/* <ProtectedRoute exact path='/' component={Profile} /> */}
                             <Route exact path="/" component={Profile} />
+                            <Route exact path="/profile" component={UserProfile} />
                         </Switch>
                     </Route>
-
-                    
-                    <ProtectedRoute exact path='/login' component={Login} />
-                    <ProtectedRoute exact path='/signup' component={Signup} />
-                    
-
-                    
 
                     <Route path="*" component={NotFound} />
 
                 </Switch>
             </BrowserRouter>
-        </Suspense>
+        // </Suspense>
     )
 }
 
